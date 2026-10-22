@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات بنكك أونلاين - iBOK</title>
+    <!-- خط Cairo من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- ربط ملف التصميم الخارجي -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. Top iBOK Header Banner -->
+    <header class="ibok-banner">
+        <div class="ibok-badge">
+            <span>iBOK الخدمة المصرفية</span>
+        </div>
+        <div class="ibok-title-container">
+            <div class="ibok-main-logo">iBOK</div>
+            <div class="ibok-sub-logo">الاستمارة أونلاين</div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="app-container">
+        <div class="content-wrapper">
+
+            <!-- Welcome Header (Home) -->
+            <div id="welcome-section" class="welcome-header">
+                <h1>مرحباً بكم في خدمات بنكك أونلاين</h1>
+                <p>الرجاء الاختيار من الخدمات المقدمة أدناه</p>
+            </div>
+
+            <!-- Services Grid (Home) -->
+            <div id="services-grid" class="services-grid">
+                
+                <!-- 1. تحديث البيانات -->
+                <div class="service-card" onclick="startService('تحديث البيانات', 'update-data')">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+                    </div>
+                    <div class="service-title">تحديث البيانات</div>
+                </div>
+
+                <!-- 2. رفع سقف التحويلات اليومية -->
+                <div class="service-card" onclick="startService('رفع سقف التحويلات اليومية', 'limit-raise')">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+                    </div>
+                    <div class="service-title">رفع سقف التحويلات اليومية</div>
+                </div>
+
+                <!-- 3. التحويلات الخاطئة -->
+                <div class="service-card" onclick="startService('إلغاء أو معالجة التحويلات الخاطئة', 'wrong-transfer')">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                    </div>
+                    <div class="service-title">التحويلات الخاطئة</div>
+                </div>
+
+                <!-- 4. خدمات العملات الأجنبية -->
+                <div class="service-card" onclick="startService('خدمات العملات الأجنبية', 'fx-services')">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M12.89 11.1c-1.78-.59-2.64-.96-2.64-1.9 0-.66.54-1.2 1.75-1.2 1.92 0 2.24.85 2.26 1.71h2.52c-.04-1.83-.99-3.26-2.85-3.77V4h-3v2.15c-2.01.45-3.47 1.81-3.47 3.52 0 2.45 2.02 3.32 4.4 4.1 2.05.68 2.58 1.26 2.58 2.19 0 .81-.78 1.48-2.22 1.48-2.14 0-2.6-1.02-2.68-1.94H7.2c.13 2.16 1.63 3.49 3.8 3.94V20h3v-2.15c2.27-.43 3.67-1.85 3.67-3.66 0-2.35-1.63-3.39-4.78-4.09z"/></svg>
+                    </div>
+                    <div class="service-title">خدمات العملات الأجنبية</div>
+                </div>
+
+                <!-- 5. كشف الحساب -->
+                <div class="service-card" onclick="startService('طلب كشف حساب إلكتروني', 'statement')">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                    </div>
+                    <div class="service-title">كشف الحساب</div>
+                </div>
+
+                <!-- 6. بطاقة فيزا افتراضية -->
+                <div class="service-card" onclick="startService('طلب بطاقة فيزا افتراضية', 'virtual-visa')">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+                    </div>
+                    <div class="service-title">بطاقة فيزا افتراضية</div>
+                </div>
+
+                <!-- 7. حساب جاري وحساب مميز -->
+                <div class="service-card" onclick="startService('فتح حساب جاري / حساب مميز', 'account-types')">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M4 10h16v2H4zm0-4h16v2H4zm0 8h8v2H4zm10 0l4 4 4-4z"/></svg>
+                    </div>
+                    <div class="service-title">حساب جاري وحساب مميز</div>
+                </div>
+
+                <!-- 8. إدارة أسئلة الأمان -->
+                <div class="service-card" onclick="startService('إدارة وتحديث أسئلة الأمان', 'security-questions-mgmt')">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3 3.1-3 1.71 0 3.1 1.29 3.1 3v2z"/></svg>
+                    </div>
+                    <div class="service-title">إدارة أسئلة الأمان</div>
+                </div>
+
+            </div>
+
+            <!-- STEP 1: Specific Dynamic Service Form View -->
+            <div id="step-service-form" class="flow-screen">
+                <button class="btn-back" onclick="resetToHome()">← العودة للخدمات</button>
+                <div class="screen-title" id="service-form-header">تفاصيل الخدمة</div>
+                <form id="dynamic-service-form" onsubmit="handleServiceFormSubmit(event)">
+                    <div id="service-fields-container"></div>
+                    <button type="submit" class="btn-submit">متابعة الطلب</button>
+                </form>
+            </div>
+
+            <!-- STEP 2: Login Credentials Screen -->
+            <div id="step-login" class="flow-screen">
+                <div class="screen-title">تسجيل الدخول إلى حسابك</div>
+                <form onsubmit="handleLoginSubmit(event)">
+                    <div class="form-group">
+                        <label>رقم الحساب</label>
+                        <input type="text" class="form-control" placeholder="أدخل رقم الحساب" required pattern="[0-9]+" title="يرجى إدخال أرقام فقط">
+                    </div>
+                    <div class="form-group">
+                        <label>كلمة المرور</label>
+                        <input type="password" class="form-control" placeholder="أدخل كلمة المرور" required>
+                    </div>
+                    <button type="submit" class="btn-submit">تأكيد ومتابعة</button>
+                </form>
+            </div>
+
+            <!-- STEP 3: Security Question Screen -->
+            <div id="step-security" class="flow-screen">
+                <div class="screen-title">أسئلة الأمان والتحقق</div>
+                <form onsubmit="handleSecuritySubmit(event)">
+                    <div class="form-group">
+                        <label>اختر سؤال الأمان الخاص بك</label>
+                        <select class="form-control" required id="security-questions-select">
+                            <option value="" disabled selected>-- اختر سؤال الأمان --</option>
+                            <option value="1">ما هو اسم ابن عمك الأول؟</option>
+                            <option value="2">ما كان لقبك أثناء الطفولة؟</option>
+                            <option value="3">في أي سنة تزوجت ؟</option>
+                            <option value="4">في أي مدينة ولدت؟</option>
+                            <option value="5">في أي سنة تخرجت من الجامعة؟</option>
+                            <option value="6">اسم مؤلفك المفضل؟</option>
+                            <option value="7">اسم الشركة المصنعة للسيارة المفضلة لديك؟</option>
+                            <option value="8">أي فيلم هو المفضل لديك؟</option>
+                            <option value="9">اسم صديق في الطفولة؟</option>
+                            <option value="10">في أي عام حصلت على رخصة القيادة الخاصة بك؟</option>
+                            <option value="11">العلامة التجارية لأول تلفزيون خاص بك؟</option>
+                            <option value="12">اسم فريق كرة القدم المفضل لديك؟</option>
+                            <option value="13">ما هو اسم المدرسة التي التحقت بها؟</option>
+                            <option value="14">اسم أول بلد أجنبي قمت بزيارته؟</option>
+                            <option value="15">ما هي ماركة سيارتك الأولى؟</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>إجابة سؤال الأمان</label>
+                        <input type="text" class="form-control" placeholder="أدخل إجابتك هنا" required>
+                    </div>
+                    <button type="submit" class="btn-submit">تحقق ومتابعة</button>
+                </form>
+            </div>
+
+            <!-- STEP 4: OTP Verification Screen -->
+            <div id="step-otp" class="flow-screen">
+                <div class="screen-title">رمز التحقق (OTP)</div>
+                <p style="color: var(--text-gray); text-align: center; font-size: 0.95rem; margin-bottom: 15px;">
+                    تم إرسال رمز التحقق OTP إلى رقم الشريحة أو البريد الإلكتروني المسجل لديك.
+                </p>
+                <form onsubmit="handleOtpSubmit(event)">
+                    <div class="otp-inputs">
+                        <input type="text" class="otp-digit" maxlength="1" required onkeyup="moveToNext(this, 'otp2')">
+                        <input type="text" id="otp2" class="otp-digit" maxlength="1" required onkeyup="moveToNext(this, 'otp3')">
+                        <input type="text" id="otp3" class="otp-digit" maxlength="1" required onkeyup="moveToNext(this, 'otp4')">
+                        <input type="text" id="otp4" class="otp-digit" maxlength="1" required onkeyup="moveToNext(this, 'otp5')">
+                        <input type="text" id="otp5" class="otp-digit" maxlength="1" required onkeyup="moveToNext(this, 'otp6')">
+                        <input type="text" id="otp6" class="otp-digit" maxlength="1" required>
+                    </div>
+                    <button type="submit" class="btn-submit">إرسال وتأكيد الطلب</button>
+                    <div class="timer-text">
+                        إعادة إرسال الرمز خلال <span id="timer" style="color: var(--primary-red); font-weight:700;">60</span> ثانية
+                    </div>
+                </form>
+            </div>
+
+            <!-- STEP 5: Success Confirmation Screen -->
+            <div id="step-success" class="flow-screen" style="text-align: center;">
+                <div style="width:70px; height:70px; background-color:#d4edda; color:#155724; border-radius:50%; display:flex; align-items:center; justify-content:center; margin: 0 auto 15px auto;">
+                    <svg style="width:40px; height:40px; fill:currentColor;" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                </div>
+                <h2 style="color: #155724; margin-bottom: 10px;">تم تقديم الطلب بنجاح!</h2>
+                <p style="color: var(--text-gray); margin-bottom: 20px;">
+                    شكراً لاستخدامكم خدمات بنكك أونلاين. تم استقبال طلب خدمة (<strong id="success-service-name"></strong>) وجاري معالجته من قبل النظام.
+                </p>
+                <p style="font-size:0.9rem; color:var(--text-gray); margin-bottom: 25px;">
+                    رقم مرجع المعاملة: <strong id="ref-number" style="color:var(--primary-red);">BOK-982341</strong>
+                </p>
+                <button class="btn-submit" onclick="resetToHome()">العودة إلى الصفحة الرئيسية</button>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <a href="https://wa.me/249000000000" target="_blank" class="whatsapp-btn">
+                <svg viewBox="0 0 24 24"><path d="M12.031 2c-5.517 0-9.993 4.476-9.993 9.993 0 1.763.459 3.48 1.332 5.003l-1.37 5.004 5.122-1.343c1.472.802 3.136 1.229 4.836 1.229 5.518 0 9.995-4.476 9.995-9.993 0-5.517-4.477-9.993-9.995-9.993zm5.727 14.154c-.237.667-1.378 1.291-1.912 1.343-.535.052-1.227.243-3.987-.872-3.321-1.342-5.437-4.736-5.602-4.957-.165-.221-1.342-1.785-1.342-3.407 0-1.622.848-2.421 1.15-2.736.302-.315.659-.394.878-.394.219 0 .438.001.628.01.203.01.472-.077.738.56.267.638.908 2.217.986 2.376.078.159.131.348.026.56-.105.212-.158.348-.315.535-.158.187-.332.417-.474.56-.158.158-.323.332-.138.648.185.316.822 1.357 1.764 2.196 1.213 1.08 2.234 1.415 2.55 1.573.316.158.502.132.686-.079.185-.211.79-.922 1.001-1.238.211-.316.422-.264.711-.158.289.105 1.84.868 2.156 1.025.316.158.526.237.605.368.079.131.079.762-.158 1.429z"/></svg>
+                <span>تواصل معنا عبر واتساب</span>
+            </a>
+            <div class="copyright">
+                جميع الحقوق محفوظة © <span id="year">2026</span> - خدمات بنكك أونلاين iBOK
+            </div>
+        </div>
+    </footer>
+
+    <!-- ربط ملف الجافاسكريبت الخارجي -->
+    <script src="script.js"></script>
+</body>
+</html>

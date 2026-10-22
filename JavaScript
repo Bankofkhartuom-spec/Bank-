@@ -1,0 +1,147 @@
+let currentServiceName = '';
+
+// Handle Service Navigation
+function startService(serviceName, serviceType) {
+    currentServiceName = serviceName;
+    document.getElementById('welcome-section').style.display = 'none';
+    document.getElementById('services-grid').style.display = 'none';
+    
+    const formHeader = document.getElementById('service-form-header');
+    const fieldsContainer = document.getElementById('service-fields-container');
+    
+    formHeader.textContent = serviceName;
+    fieldsContainer.innerHTML = '';
+
+    // Build dynamic input fields based on service type
+    if (serviceType === 'limit-raise') {
+        fieldsContainer.innerHTML = `
+            <div class="form-group">
+                <label>السقف الحالي اليومي (د.س)</label>
+                <input type="text" class="form-control readonly-control" value="25.000.000.00" readonly>
+            </div>
+            <div class="form-group">
+                <label>السقف المطلوب اليومي (د.س)</label>
+                <input type="text" class="form-control readonly-control" value="45.000.000.00" readonly>
+            </div>
+            <div class="form-group">
+                <label>سبب طلب رفع السقف</label>
+                <select class="form-control" required>
+                    <option value="" disabled selected>اختر السبب</option>
+                    <option value="1">تجارية / أعمال</option>
+                    <option value="2">مشتريات شخصية</option>
+                    <option value="3">تحويلات عائلية</option>
+                </select>
+            </div>
+        `;
+    } else if (serviceType === 'update-data') {
+        fieldsContainer.innerHTML = `
+            <div class="form-group">
+                <label>الاسم الكامل</label>
+                <input type="text" class="form-control" placeholder="أدخل الاسم الرباعي" required>
+            </div>
+            <div class="form-group">
+                <label>رقم الهوية / الرقم الوطني</label>
+                <input type="text" class="form-control" placeholder="أدخل رقم الهوية" required>
+            </div>
+            <div class="form-group">
+                <label>رقم الهاتف الجديد</label>
+                <input type="tel" class="form-control" placeholder="09xxxxxxxx" required>
+            </div>
+        `;
+    } else if (serviceType === 'wrong-transfer') {
+        fieldsContainer.innerHTML = `
+            <div class="form-group">
+                <label>رقم العملية / الرقم المرجعي</label>
+                <input type="text" class="form-control" placeholder="أدخل رقم العملية الخاطئة" required>
+            </div>
+            <div class="form-group">
+                <label>المبلغ المحول</label>
+                <input type="number" class="form-control" placeholder="أدخل المبلغ" required>
+            </div>
+            <div class="form-group">
+                <label>رقم الحساب المحول إليه بالخطأ</label>
+                <input type="text" class="form-control" placeholder="أدخل رقم الحساب الخاطئ" required>
+            </div>
+        `;
+    } else {
+        // Default generic form for other services
+        fieldsContainer.innerHTML = `
+            <div class="form-group">
+                <label>تفاصيل طلب الخدمة</label>
+                <textarea class="form-control" rows="3" placeholder="أدخل التفاصيل أو الملاحظات المتعلقة بالخدمة..." required></textarea>
+            </div>
+            <div class="form-group">
+                <label>نوع الحساب المرتبط</label>
+                <select class="form-control" required>
+                    <option value="1">حساب جاري</option>
+                    <option value="2">حساب توفير</option>
+                    <option value="3">حساب مميز</option>
+                </select>
+            </div>
+        `;
+    }
+
+    showScreen('step-service-form');
+}
+
+// Screen Switcher Helper
+function showScreen(screenId) {
+    const screens = document.querySelectorAll('.flow-screen');
+    screens.forEach(s => s.classList.remove('active'));
+    document.getElementById(screenId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Return Home
+function resetToHome() {
+    const screens = document.querySelectorAll('.flow-screen');
+    screens.forEach(s => s.classList.remove('active'));
+    document.getElementById('welcome-section').style.display = 'block';
+    document.getElementById('services-grid').style.display = 'grid';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Form Submission Step Handlers
+function handleServiceFormSubmit(e) {
+    e.preventDefault();
+    showScreen('step-login');
+}
+
+function handleLoginSubmit(e) {
+    e.preventDefault();
+    showScreen('step-security');
+}
+
+function handleSecuritySubmit(e) {
+    e.preventDefault();
+    showScreen('step-otp');
+    startOtpTimer();
+}
+
+function handleOtpSubmit(e) {
+    e.preventDefault();
+    document.getElementById('success-service-name').textContent = currentServiceName;
+    document.getElementById('ref-number').textContent = 'BOK-' + Math.floor(100000 + Math.random() * 900000);
+    showScreen('step-success');
+}
+
+// OTP Input Auto Focus
+function moveToNext(current, nextFieldId) {
+    if (current.value.length >= 1) {
+        document.getElementById(nextFieldId).focus();
+    }
+}
+
+// OTP Countdown Timer
+function startOtpTimer() {
+    let timeLeft = 60;
+    const timerDisplay = document.getElementById('timer');
+    const interval = setInterval(() => {
+        timeLeft--;
+        if (timerDisplay) timerDisplay.textContent = timeLeft;
+        if (timeLeft <= 0) {
+            clearInterval(interval);
+            if (timerDisplay) timerDisplay.textContent = "0 (يمكنك إعادة الطلب الآن)";
+        }
+    }, 1000);
+}
